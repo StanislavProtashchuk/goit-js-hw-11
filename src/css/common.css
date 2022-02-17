@@ -1,0 +1,28 @@
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.info {
+  display: flex;
+  justify-content: space-around;
+}
+
+.photo-card {
+  width: 350px;
+  border: 4px tomato solid;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+
+.picture {
+  display: block;
+  width: 100%;
+  height: 200px;
+}
+
+.info-item {
+  text-align: center;
+}
