@@ -45,9 +45,12 @@ function renderPicture(picture) {
         Notiflix.Notify.failure(`We're sorry, but you've reached the end of search results.`);
         loadMore.hidden = true;
     }
+    if (picture.totalHits !== 0 && page === 1) {
+        Notiflix.Notify.success(`Hooray! We found ${picture.totalHits} images.`);
+    }
     const markup = RENDER(picture.hits);
     render.insertAdjacentHTML('beforeend', markup);
-    Notiflix.Notify.success(`Hooray! We found ${picture.totalHits} images.`);
+    
     loadMore.disabled = false;    
 }
     
