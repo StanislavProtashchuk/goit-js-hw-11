@@ -2,6 +2,8 @@ import './css/common.css'
 import API from './api/fetch';
 import RENDER from './components/render'
 import Notiflix from 'notiflix';
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const render = document.querySelector('.gallery');
 const inputValue = document.querySelector('.search-form');
@@ -50,6 +52,9 @@ function renderPicture(picture) {
     }
     const markup = RENDER(picture.hits);
     render.insertAdjacentHTML('beforeend', markup);
+
+    let gallery = new SimpleLightbox('.photo-card a', { captionsData: 'alt', captionDelay: 250, });
+    gallery.refresh();
     
     loadMore.disabled = false;    
 }
@@ -65,6 +70,6 @@ function onLoadMore() {
     API.getPictures(name, page)
             .then(renderPicture)
         .catch(onFetchError)
-    loadMore.disabled = false;
-    
+    loadMore.disabled = false;    
 }
+
