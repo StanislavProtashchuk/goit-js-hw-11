@@ -62,6 +62,8 @@ function renderPicture(picture) {
 function onFetchError() {
     Notiflix.Notify.failure(`Sorry, there are no images matching your search query. Please try again.`);
     render.innerHTML = clear;
+    loadMore.hidden = true;
+    
 }
 
 function onLoadMore() {
