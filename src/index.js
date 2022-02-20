@@ -43,7 +43,7 @@ function renderPicture(picture) {
     if (picture.hits.length === 0) {
         onFetchError();
     }
-    if (picture.hits.length < 40 || totalPics < 1) {
+    if (picture.hits.length > 0 && picture.hits.length < 40 || totalPics < 1) {
         Notiflix.Notify.failure(`We're sorry, but you've reached the end of search results.`);
         loadMore.hidden = true;
     }
