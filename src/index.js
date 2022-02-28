@@ -20,10 +20,11 @@ function search(e) {
     e.preventDefault();
     loadMore.hidden = false;
     loadMore.disabled = true;
-   
+
         name = e.currentTarget.elements.searchQuery.value.trim();
         clearRender();
-        if (name.length === 0) {
+    if (name.length === 0) {
+            loadMore.hidden = true;
             return;
         }
         API.getPictures(name, page)
@@ -65,8 +66,7 @@ function renderPicture(picture) {
 function onFetchError() {
     Notiflix.Notify.failure(`Sorry, there are no images matching your search query. Please try again.`);
     render.innerHTML = clear;
-    loadMore.hidden = true;
-    
+    loadMore.hidden = true;    
 }
 
 function onLoadMore() {
@@ -82,7 +82,7 @@ function onLoadMore() {
 
 function smoothScroll() {
     window.scrollBy({
-        top: 60,
+        top: 140,
         behavior: 'smooth',
     }
     );
@@ -90,7 +90,7 @@ function smoothScroll() {
 
 function onLoadMoreSmoothScroll() {
     window.scrollBy({
-        top: 710,
+        top: 680,
         behavior: 'smooth',
     }
     );

@@ -1,7 +1,53 @@
+body {
+  background: linear-gradient(90deg, #f598a8, #f6edb2);
+  text-align: center;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 50px;
+}
+
+.input {
+  padding-left: 10px;
+  width: 300px;
+  height: 40px;
+  border: transparent;
+  color: rgb(173, 16, 16);
+  background-color: rgb(252, 184, 117);
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.input::placeholder {
+  color: rgb(173, 16, 16);
+}
+
+.btn,
+.load-more {
+  border: transparent;
+  border-radius: 10px;
+  width: 100px;
+  height: 40px;
+  color: rgb(173, 16, 16);
+  background-color: rgb(252, 184, 117);
+}
+
+.btn:hover,
+.load-more:hover {
+  color: rgb(173, 16, 16);
+  background-color: rgb(252, 184, 117);
+  background-color: rgb(248, 161, 79);
+  cursor: pointer;
+}
+
 .gallery {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  margin: 10px 0 10px;
 }
 
 .info {
@@ -11,7 +57,7 @@
 
 .photo-card {
   width: 350px;
-  border: 4px tomato solid;
+  border: 4px rgb(173, 16, 16) solid;
   border-radius: 10px;
   margin-bottom: 15px;
   overflow: hidden;
@@ -25,4 +71,5 @@
 
 .info-item {
   text-align: center;
+  color: rgb(173, 16, 16);
 }
