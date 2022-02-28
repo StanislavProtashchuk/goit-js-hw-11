@@ -30,6 +30,7 @@ function search(e) {
             .then(renderPicture)
             .catch(onFetchError)
     inputValue.reset();
+    
     }
 
 function clearRender() {
@@ -49,9 +50,11 @@ function renderPicture(picture) {
     }
     if (picture.totalHits !== 0 && page === 1) {
         Notiflix.Notify.success(`Hooray! We found ${picture.totalHits} images.`);
+        
     }
     const markup = RENDER(picture.hits);
     render.insertAdjacentHTML('beforeend', markup);
+    smoothScroll();
 
     let gallery = new SimpleLightbox('.photo-card a', { captionsData: 'alt', captionDelay: 250, });
     gallery.refresh();
@@ -70,8 +73,26 @@ function onLoadMore() {
     loadMore.disabled = true;
     page += 1;
     API.getPictures(name, page)
-            .then(renderPicture)
+        .then(renderPicture)
+        .then(onLoadMoreSmoothScroll)
         .catch(onFetchError)
-    loadMore.disabled = false;    
+    loadMore.disabled = false;   
+    
+}
+
+function smoothScroll() {
+    window.scrollBy({
+        top: 60,
+        behavior: 'smooth',
+    }
+    );
+}
+
+function onLoadMoreSmoothScroll() {
+    window.scrollBy({
+        top: 710,
+        behavior: 'smooth',
+    }
+    );
 }
 
